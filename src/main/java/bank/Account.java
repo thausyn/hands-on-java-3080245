@@ -51,7 +51,9 @@ public class Account {
     if(amount <= 0){
       throw new AmountException("The withdrawal amount must be greater than 0");
     }else{
-
+      double newBalance = balance - amount;
+      setBalance(newBalance);
+      DataSource.updateAccountBalance(id, newBalance);
     }
   }
 }
